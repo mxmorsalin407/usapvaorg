@@ -29,33 +29,51 @@ export default function Features() {
   ];
 
   return (
-    <section className="py-24 bg-primary relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-primary relative overflow-hidden">
 
-      {/* Spotlight Background */}
+      {/* Spotlight */}
       <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[60vw] h-[60vh] bg-gradient-to-r from-blue-900 via-cyan-900/40 to-transparent blur-[120px] opacity-60 z-0"></div>
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-4 sm:px-6 relative z-10">
 
-        {/* HEADER (UNCHANGED) */}
-        <div className="flex flex-col lg:flex-row items-center gap-16 mb-20">
+        {/* HEADER */}
+        <div className="flex flex-col lg:flex-row items-center gap-10 lg:gap-16 mb-16 md:mb-20">
 
+          {/* Orbit */}
           <div className="hidden lg:block w-48 h-48 relative animate-[spin_20s_linear_infinite] opacity-60">
-            <svg viewBox="0 0 100 100" className="w-full h-full text-white/40 fill-none stroke-current" strokeWidth="0.5">
+            <svg
+              viewBox="0 0 100 100"
+              className="w-full h-full text-white/40 fill-none stroke-current"
+              strokeWidth="0.5"
+            >
               <circle cx="50" cy="50" r="48" />
               <ellipse cx="50" cy="50" rx="48" ry="20" />
               <ellipse cx="50" cy="50" rx="20" ry="48" />
-              <ellipse cx="50" cy="50" rx="48" ry="10" transform="rotate(45 50 50)" />
-              <ellipse cx="50" cy="50" rx="48" ry="10" transform="rotate(-45 50 50)" />
+              <ellipse
+                cx="50"
+                cy="50"
+                rx="48"
+                ry="10"
+                transform="rotate(45 50 50)"
+              />
+              <ellipse
+                cx="50"
+                cy="50"
+                rx="48"
+                ry="10"
+                transform="rotate(-45 50 50)"
+              />
             </svg>
           </div>
 
+          {/* Titles */}
           <div className="flex-1 text-center lg:text-left">
             <motion.h2
               initial={{ x: -30, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
-              className="text-6xl md:text-[100px] font-black tracking-tight leading-[0.9] text-white uppercase"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-black tracking-tight leading-[0.9] text-white uppercase"
             >
               POWERFUL
             </motion.h2>
@@ -65,28 +83,32 @@ export default function Features() {
               whileInView={{ x: 0, opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-6xl md:text-[100px] font-black tracking-tight leading-[0.9] text-transparent uppercase"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-[100px] font-black tracking-tight leading-[0.9] text-transparent uppercase"
               style={{ WebkitTextStroke: "1px #8b5cf6" }}
             >
               FEATURES
             </motion.h2>
           </div>
 
-          <div className="lg:w-1/3 text-gray-400 text-sm leading-relaxed">
-            <div className="flex items-center gap-3 mb-4">
+          {/* Side Text */}
+          <div className="lg:w-1/3 text-gray-400 text-sm leading-relaxed text-center lg:text-left">
+            <div className="flex items-center justify-center lg:justify-start gap-3 mb-4">
               <div className="w-10 h-10 rounded-full bg-purple-900/30 flex items-center justify-center text-purple-400">
                 ⚡
               </div>
-              <span className="font-bold text-white text-xl tracking-widest">
+
+              <span className="font-bold text-white text-lg md:text-xl tracking-widest">
                 usapvaorg
               </span>
             </div>
-            Explore highlight features that make us stand out from others. Buy one account and access all these premium business tools.
+
+            Explore highlight features that make us stand out from others.
+            Buy one account and access all these premium business tools.
           </div>
         </div>
 
-        {/* CARDS SECTION */}
-        <div className="flex flex-col gap-10">
+        {/* CARDS */}
+        <div className="flex flex-col gap-6 md:gap-10">
 
           {cards.map((card, i) => {
             const fromLeft = i % 2 === 0;
@@ -107,42 +129,47 @@ export default function Features() {
                   duration: 0.7,
                   ease: "easeOut",
                 }}
-                className={`flex ${fromLeft ? "justify-start" : "justify-end"}`}
+                className={`flex ${fromLeft ? "justify-start" : "justify-end"
+                  }`}
               >
-
-                <div className="group w-full md:w-[80%] lg:w-[70%] relative">
+                <div className="group w-full md:w-[90%] lg:w-[70%] relative">
 
                   {/* Glow */}
-                  <div className={`absolute -inset-1 bg-gradient-to-r ${card.color} rounded-3xl blur opacity-10 group-hover:opacity-30 transition`}></div>
+                  <div
+                    className={`absolute -inset-1 bg-gradient-to-r ${card.color} rounded-3xl blur opacity-10 group-hover:opacity-30 transition`}
+                  ></div>
 
                   {/* CARD */}
-                  <div className="relative bg-white/[0.04] backdrop-blur-3xl rounded-[2.5rem] p-10 border border-white/10 flex gap-10 overflow-hidden group-hover:bg-white/[0.07] group-hover:border-white/20 transition-all duration-700">
+                  <div className="relative bg-white/[0.04] backdrop-blur-3xl rounded-[2rem] md:rounded-[2.5rem] p-4 sm:p-5 md:p-8 border border-white/10 flex items-center gap-4 sm:gap-5 md:gap-8 overflow-hidden group-hover:bg-white/[0.07] group-hover:border-white/20 transition-all duration-700">
 
-                    {/* IMAGE 1:1 */}
-                    <div className="w-[240px] aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5 flex-shrink-0">
+                    {/* IMAGE */}
+                    <div className="w-[90px] sm:w-[120px] md:w-[180px] lg:w-[240px] aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/5 flex-shrink-0">
 
                       <img
                         src={card.img}
                         alt={card.title}
-                        className="w-full h-full object-cover opacity-70 group-hover:opacity-100 group-hover:scale-110 transition duration-700"
+                        className="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition duration-700"
                       />
                     </div>
 
                     {/* TEXT */}
-                    <div className="flex flex-col justify-center">
+                    <div className="flex-1 min-w-0">
 
-                      <div className="flex items-center gap-2 mb-4">
-                        <div className={`w-2 h-2 rounded-full bg-gradient-to-r ${card.color} animate-pulse`} />
-                        <span className="text-xs uppercase tracking-[0.3em] text-white/60">
+                      <div className="flex items-center gap-2 mb-2 md:mb-4">
+                        <div
+                          className={`w-2 h-2 rounded-full bg-gradient-to-r ${card.color} animate-pulse`}
+                        />
+
+                        <span className="text-[10px] sm:text-xs uppercase tracking-[0.25em] text-white/60">
                           Highlight
                         </span>
                       </div>
 
-                      <h3 className="text-3xl font-bold text-white mb-3 group-hover:text-white/90 transition">
+                      <h3 className="text-lg sm:text-2xl md:text-3xl font-bold text-white mb-2 md:mb-3 leading-tight">
                         {card.title}
                       </h3>
 
-                      <p className="text-gray-400 text-sm leading-relaxed max-w-[500px]">
+                      <p className="text-gray-400 text-xs sm:text-sm md:text-base leading-relaxed">
                         {card.desc}
                       </p>
 
@@ -155,7 +182,6 @@ export default function Features() {
           })}
 
         </div>
-
       </div>
     </section>
   );

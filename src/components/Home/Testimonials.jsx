@@ -2,7 +2,6 @@ import { motion } from "framer-motion";
 import {
   Star,
   ShieldCheck,
-  Zap,
   Users,
   Globe2,
   BadgeCheck,
@@ -125,7 +124,7 @@ const stats = [
     label: "Happy Clients",
     value: 15000,
     suffix: "+",
-    icon: <Users className="w-6 h-6" />,
+    icon: <Users className="w-5 h-5 md:w-6 md:h-6" />,
     color: "from-cyan-500 to-blue-600",
   },
   {
@@ -133,7 +132,7 @@ const stats = [
     value: 99.9,
     suffix: "%",
     decimal: 1,
-    icon: <Activity className="w-6 h-6" />,
+    icon: <Activity className="w-5 h-5 md:w-6 md:h-6" />,
     color: "from-green-400 to-emerald-600",
   },
   {
@@ -141,27 +140,27 @@ const stats = [
     value: 4.9,
     suffix: "/5",
     decimal: 1,
-    icon: <Star className="w-6 h-6 fill-current" />,
+    icon: <Star className="w-5 h-5 md:w-6 md:h-6 fill-current" />,
     color: "from-yellow-400 to-orange-500",
   },
   {
     label: "Countries Served",
     value: 120,
     suffix: "+",
-    icon: <Globe2 className="w-6 h-6" />,
+    icon: <Globe2 className="w-5 h-5 md:w-6 md:h-6" />,
     color: "from-purple-500 to-pink-600",
   },
 ];
 
 const ReviewCard = ({ review }) => (
-  <div className="w-[380px] shrink-0 mx-4 p-8 rounded-[2.5rem] bg-white/[0.04] border border-white/10 backdrop-blur-3xl hover:border-white/20 hover:bg-white/[0.07] transition-all duration-500 group">
+  <div className="w-[320px] md:w-[380px] shrink-0 mx-3 md:mx-4 p-6 md:p-8 rounded-[2rem] md:rounded-[2.5rem] bg-white/[0.04] border border-white/10 backdrop-blur-3xl hover:border-white/20 hover:bg-white/[0.07] transition-all duration-500 group">
     <div className="flex justify-between items-start mb-4">
       <div className="flex items-center gap-3">
         <div className="relative">
           <img
             src={review.avatar}
             alt={review.name}
-            className="w-14 h-14 rounded-full ring-2 ring-white/10 group-hover:ring-purple-500/50 transition-all"
+            className="w-12 h-12 md:w-14 md:h-14 rounded-full ring-2 ring-white/10 group-hover:ring-purple-500/50 transition-all"
           />
 
           <div className="absolute -bottom-1 -right-1 w-5 h-5 rounded-full bg-blue-500 flex items-center justify-center border border-[#050505]">
@@ -170,14 +169,16 @@ const ReviewCard = ({ review }) => (
         </div>
 
         <div>
-          <h4 className="text-white font-semibold flex items-center gap-2">
+          <h4 className="text-white text-sm md:text-base font-semibold flex items-center gap-2">
             {review.name}
             <span>{review.country}</span>
           </h4>
 
-          <p className="text-gray-500 text-xs">{review.role}</p>
+          <p className="text-gray-500 text-[11px] md:text-xs">
+            {review.role}
+          </p>
 
-          <div className="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[10px] font-bold tracking-wide uppercase">
+          <div className="inline-flex items-center gap-1 mt-1 px-2 py-0.5 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[9px] md:text-[10px] font-bold tracking-wide uppercase">
             <BadgeCheck className="w-3 h-3" />
             {review.verified}
           </div>
@@ -188,13 +189,13 @@ const ReviewCard = ({ review }) => (
         {[...Array(review.rating)].map((_, i) => (
           <Star
             key={i}
-            className="w-4 h-4 text-yellow-500 fill-yellow-500"
+            className="w-3 h-3 md:w-4 md:h-4 text-yellow-500 fill-yellow-500"
           />
         ))}
       </div>
     </div>
 
-    <p className="text-gray-300 text-sm leading-relaxed">
+    <p className="text-gray-300 text-xs md:text-sm leading-relaxed">
       "{review.text}"
     </p>
   </div>
@@ -205,21 +206,21 @@ export default function Testimonials() {
   const bottomRow = [...allReviews.slice(6, 12), ...allReviews.slice(6, 12)];
 
   return (
-    <section className="py-32 bg-[#050505] relative overflow-hidden border-t border-white/5">
+    <section className="py-20 md:py-32 bg-[#050505] relative overflow-hidden border-t border-white/5">
 
       {/* bg effects */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/10 blur-[140px] rounded-full"></div>
+      <div className="absolute top-0 left-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-cyan-500/10 blur-[120px] md:blur-[140px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-[300px] md:w-[500px] h-[300px] md:h-[500px] bg-purple-500/10 blur-[120px] md:blur-[140px] rounded-full"></div>
 
       {/* heading */}
-      <div className="container mx-auto px-6 relative z-10 mb-20">
+      <div className="container mx-auto px-4 md:px-6 relative z-10 mb-14 md:mb-20">
         <div className="text-center max-w-4xl mx-auto flex flex-col items-center">
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-[11px] font-bold tracking-widest uppercase mb-6 backdrop-blur-md"
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-purple-500/30 bg-purple-500/10 text-purple-400 text-[10px] md:text-[11px] font-bold tracking-widest uppercase mb-5 md:mb-6 backdrop-blur-md"
           >
             <Star className="w-3 h-3 fill-current" />
             Customer Success
@@ -233,7 +234,7 @@ export default function Testimonials() {
               duration: 0.8,
               ease: [0.33, 1, 0.68, 1],
             }}
-            className="text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1]"
+            className="text-3xl sm:text-4xl md:text-6xl font-bold text-white tracking-tight leading-[1.1]"
           >
             Trusted by 10,000+ businesses
             <br className="hidden md:block" />
@@ -247,7 +248,7 @@ export default function Testimonials() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="text-gray-400 text-lg max-w-2xl mt-5"
+            className="text-gray-400 text-sm md:text-lg max-w-2xl mt-4 md:mt-5"
           >
             Don't just take our word for it. See what top entrepreneurs,
             media buyers, and agencies say about our premium accounts.
@@ -256,7 +257,7 @@ export default function Testimonials() {
       </div>
 
       {/* marquee */}
-      <div className="relative z-10 flex flex-col gap-8 overflow-hidden">
+      <div className="relative z-10 flex flex-col gap-6 md:gap-8 overflow-hidden">
 
         <div className="flex whitespace-nowrap animate-marquee gap-0">
           {topRow.map((review, idx) => (
@@ -270,18 +271,18 @@ export default function Testimonials() {
           ))}
         </div>
 
-        <div className="absolute inset-y-0 left-0 w-[12%] bg-gradient-to-r from-[#050505] to-transparent pointer-events-none z-20"></div>
-        <div className="absolute inset-y-0 right-0 w-[12%] bg-gradient-to-l from-[#050505] to-transparent pointer-events-none z-20"></div>
+        <div className="absolute inset-y-0 left-0 w-[10%] md:w-[12%] bg-gradient-to-r from-[#050505] to-transparent pointer-events-none z-20"></div>
+        <div className="absolute inset-y-0 right-0 w-[10%] md:w-[12%] bg-gradient-to-l from-[#050505] to-transparent pointer-events-none z-20"></div>
       </div>
 
-      {/* animated stats */}
-      <div className="container mx-auto px-6 relative z-10 mt-28">
+      {/* stats */}
+      <div className="container mx-auto px-4 md:px-6 relative z-10 mt-20 md:mt-28">
 
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="relative grid grid-cols-2 md:grid-cols-4 gap-8 p-10 rounded-[2.5rem] border border-white/10 bg-white/[0.04] backdrop-blur-3xl overflow-hidden"
+          className="relative grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 p-4 md:p-10 rounded-[2rem] md:rounded-[2.5rem] border border-white/10 bg-white/[0.04] backdrop-blur-3xl overflow-hidden"
         >
 
           {/* gradient background */}
@@ -291,23 +292,29 @@ export default function Testimonials() {
             <motion.div
               key={idx}
               whileHover={{ y: -6, scale: 1.03 }}
-              className="relative group flex flex-col items-center text-center rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-6 overflow-hidden"
+              className="relative group flex flex-col items-center text-center rounded-2xl border border-white/10 bg-white/[0.03] backdrop-blur-md p-4 md:p-6 overflow-hidden"
             >
 
               {/* glow */}
-              <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-br ${stat.color} blur-3xl`}></div>
+              <div
+                className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-br ${stat.color} blur-3xl`}
+              ></div>
 
               {/* icon */}
-              <div className={`relative z-10 w-16 h-16 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center text-white shadow-[0_0_25px_rgba(255,255,255,0.08)] mb-5 animate-pulse`}>
+              <div
+                className={`relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-gradient-to-br ${stat.color} flex items-center justify-center text-white shadow-[0_0_25px_rgba(255,255,255,0.08)] mb-3 md:mb-5`}
+              >
                 {stat.icon}
               </div>
 
               {/* counter */}
-              <h3 className="relative z-10 text-4xl font-black text-white tracking-tight mb-2">
-                {stat.value}{stat.suffix}
+              <h3 className="relative z-10 text-2xl sm:text-3xl md:text-4xl font-black text-white tracking-tight mb-1 md:mb-2">
+                {stat.value}
+                {stat.suffix}
               </h3>
 
-              <p className="relative z-10 text-gray-400 text-xs font-bold uppercase tracking-[0.25em]">
+              {/* label */}
+              <p className="relative z-10 text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-[0.15em] md:tracking-[0.25em] leading-relaxed">
                 {stat.label}
               </p>
 
