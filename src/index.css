@@ -1,0 +1,105 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Jost", "Inter", sans-serif;
+
+  --color-primary: #050508;
+  --color-secondary: #0B0B0F;
+  --color-electric: #00F2FF;
+  --color-electric-light: #70FBFF;
+  --color-gold: #FFD700;
+  --color-gold-muted: #BFA100;
+  --color-cyan-neon: #00f2ff;
+  --color-gold-neon: #ffd700;
+
+}
+
+@layer base {
+  body {
+    background-color: #030305;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(76, 29, 149, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(14, 165, 233, 0.15) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(76, 29, 149, 0.1) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, rgba(14, 165, 233, 0.1) 0px, transparent 50%);
+    background-attachment: fixed;
+    color: #F3F3F3;
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    cursor: none;
+  }
+
+  a,
+  button {
+    cursor: none;
+  }
+}
+
+@layer utilities {
+  .bg-grid-pattern {
+    background-size: 50px 50px;
+    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  }
+
+  .text-glow {
+    text-shadow: 0 0 15px rgba(74, 140, 255, 0.4);
+  }
+
+  .box-glow {
+    box-shadow: 0 0 25px rgba(74, 140, 255, 0.2);
+  }
+
+  .animate-marquee {
+    animation: marquee 50s linear infinite;
+  }
+
+  .scanline {
+    width: 100%;
+    height: 100px;
+    z-index: 5;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 242, 255, 0.05) 50%, rgba(0, 0, 0, 0) 100%);
+    opacity: 0.1;
+    position: absolute;
+    bottom: 100%;
+    animation: scanline 10s linear infinite;
+  }
+
+  @keyframes scanline {
+    0% {
+      bottom: 100%;
+    }
+
+    100% {
+      bottom: -100px;
+    }
+  }
+
+  .neon-border-cyan {
+    box-shadow: 0 0 5px var(--color-cyan-neon), inset 0 0 5px var(--color-cyan-neon);
+    border: 1px solid var(--color-cyan-neon);
+  }
+
+  .neon-border-gold {
+    box-shadow: 0 0 5px var(--color-gold-neon), inset 0 0 5px var(--color-gold-neon);
+    border: 1px solid var(--color-gold-neon);
+  }
+
+  .cyber-grid {
+    background-image:
+      linear-gradient(rgba(0, 242, 255, 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0, 242, 255, 0.05) 1px, transparent 1px);
+    background-size: 50px 50px;
+  }
+
+  @keyframes marquee {
+
+    0% {
+      transform: translateX(0%);
+    }
+
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+}

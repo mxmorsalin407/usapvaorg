@@ -1,0 +1,87 @@
+@media (max-width: 768px) {
+
+    .ultimate-wrapper {
+        min-height: 100vh;
+        padding: 40px 15px;
+    }
+
+    .hero-content {
+        padding: 10px;
+        width: 100%;
+    }
+
+    .title {
+        font-size: 38px;
+        letter-spacing: 3px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .sale-text {
+        font-size: 60px;
+        margin-top: -15px;
+    }
+
+    .hero-content p {
+        width: 95%;
+        font-size: 13px;
+    }
+
+    .hero-content button {
+        width: 160px;
+        height: 50px;
+        font-size: 15px;
+    }
+
+    /* IMPORTANT FIX: prevent horizontal overflow */
+    .shape-right {
+        right: -120px;
+        opacity: 0.7;
+    }
+
+    .shape-left {
+        left: -80px;
+        opacity: 0.7;
+    }
+
+    .orbit-line {
+        display: none;
+    }
+
+    .planet {
+        right: 20px;
+        top: 260px;
+    }
+
+    .small-ball {
+        bottom: 80px;
+        left: 20px;
+    }
+}
+
+/* SMALL PHONE FIX */
+@media (max-width: 480px) {
+
+    .title {
+        font-size: 30px;
+    }
+
+    .sale-text {
+        font-size: 45px;
+    }
+
+    .hero-content p {
+        font-size: 12px;
+    }
+
+    .shape-left,
+    .shape-right,
+    .shape-bottom {
+        transform: scale(0.6);
+        opacity: 0.5;
+    }
+
+    .star {
+        font-size: 25px;
+    }
+}
